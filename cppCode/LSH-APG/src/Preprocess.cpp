@@ -59,18 +59,18 @@ void Preprocess::load_data(const std::string& path)
 		exit(0);
 	}
 
-	unsigned int header[3] = {};
-	assert(sizeof header == 3 * 4);
+	unsigned int header[1] = {};
+	assert(sizeof header == 1 * 4);
 	in.read((char*)header, sizeof(header));
-	assert(header[0] == sizeof(float));
-	data.N = header[1];
-	data.dim = header[2];
+	printf("dim = %d\n", header[0]);
+	data.N = 100000;
+	data.dim = 768;
 
 	data.val = new float* [data.N];
 	for (int i = 0; i < data.N; ++i) {
 		data.val[i] = new float[data.dim];
 		//in.seekg(sizeof(float), std::ios::cur);
-		in.read((char*)data.val[i], sizeof(float) * header[2]);
+		in.read((char*)data.val[i], sizeof(float) * data.dim);
 	}
 
 	//data.val = new float* [data.N];

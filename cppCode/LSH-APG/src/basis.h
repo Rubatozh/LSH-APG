@@ -13,9 +13,9 @@
 #include <set>
 #include <map>
 #include <algorithm>
-//#include "space_l2.h"
+#include "space_l2.h"
 #include "fastL2_ip.h"
-#include "distances_simd_avx512.h"
+//#include "distances_simd_avx512.h"
 #include <mutex>
 
 #if defined(__GNUC__)
